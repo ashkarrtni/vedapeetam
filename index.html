@@ -811,3 +811,24 @@
 <script src="js/enhanced.js"></script>
 </body>
 </html>
+
+
+<script>
+function readBook(button) {
+    const card = button.closest('.book-card');
+    const pdf = card.dataset.pdf;
+
+    const reader = document.getElementById('pdfReader');
+    const frame = document.getElementById('pdfFrame');
+
+    frame.src = pdf + '#toolbar=0&navpanes=0&scrollbar=1';
+
+    reader.style.display = 'block';
+    reader.scrollIntoView({ behavior: 'smooth' });
+}
+
+function closeBook() {
+    document.getElementById('pdfFrame').src = 'about:blank';
+    document.getElementById('pdfReader').style.display = 'none';
+}
+</script>
